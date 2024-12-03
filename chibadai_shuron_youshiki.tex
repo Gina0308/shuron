@@ -1,0 +1,135 @@
+\documentclass[paper=a4paper,hanging_punctuation,jafontscale=0.92469,titlepage,fontsize=12pt]{jlreq}
+
+\pagestyle{plain}
+
+\setlength{\textwidth}{40zw}
+\setlength{\textheight}{19cm}
+\setlength{\oddsidemargin}{1zw}
+\setlength{\evensidemargin}{2zw}
+\setlength{\topmargin}{0.5zw}
+\setlength{\headheight}{1zw}
+\setlength{\headsep}{1.5zw}
+\setlength{\footskip}{70pt}
+
+\usepackage{float}			% グラフィックの配置命令 
+\usepackage{tabularx}
+\usepackage{amsmath,amssymb}      %  数式拡張 
+\usepackage{multicol}             %  段組 
+\usepackage{wrapfig}               % 文章を回り込ませる 
+\usepackage{longtable}
+\usepackage{amsmath,amssymb}
+\usepackage{mathcomp}
+\usepackage{bm}
+\usepackage[dvipdfmx]{graphicx,xcolor}
+\usepackage{indentfirst}
+\usepackage{subcaption}
+\usepackage{ascmac}
+\usepackage[top=20truemm,bottom=20truemm,left=25truemm,right=25truemm]{geometry}
+
+\graphicspath{{fig/}}              % 図へのPath
+
+\usepackage{siunitx} % SI単位系
+\usepackage{chngcntr} %章ごとにキャプション
+\counterwithin{figure}{section} %章ごとに図番号を振る
+\counterwithin{table}{section} %章ごとに表番号を振る
+
+\newcommand{\bibiname}{参考文献}
+
+\renewcommand{\baselinestretch}{0.9}
+
+\newcommand{\fulltoday}{\number\day\space \ifcase\month\or
+January\or February\or March\or April\or May\or June\or
+July\or August\or September\or October\or November\or December\fi
+\space\number\year}
+
+\newcommand{\gyo}{\vskip\baselineskip}
+\newcommand{\Fig}[1]{\begin{figure}[htbp] \begin{minipage}{#1} \begin{center}}	%beginfigure
+\newcommand{\MFig}[1]{\end{center} \end{minipage} \begin{minipage}{#1} \begin{center}}
+\newcommand{\EFig}{\end{center} \end{minipage} \end{figure}}	%endfigure
+\newcommand{\Tab}[1]{\begin{table}[htbp] \begin{center} \begin{minipage}{#1}}	%begintab
+\newcommand{\ETab}{\end{minipage} \end{center} \end{table}}	%endtab
+
+%面倒なコマンドは\newcommandで指定してあげたほうが後々楽に行けます。以下一例
+% \newcommand{\rn}{$^{222}Rn$}
+% \newcommand{\al}{$\alpha$崩壊}
+
+\makeatletter
+\newcommand{\figcaption}[1]{\def\@captype{figure}\caption{#1}}	%captionの図・表分け
+\newcommand{\tabcaption}[1]{\def\@captype{table}\caption{#1}}
+\makeatother
+
+%図はフォルダー名figにいれて、表はフォルダー名graとかに入れておくと楽かも。
+
+\begin{document}
+
+\setlength{\baselineskip}{15pt}   % baselineskip はプリアンブルではなくdocument 内に書く 
+
+\begin{center}
+  {\Huge 千葉大学大学院融合理工学府}\\[3cm]
+  {\LARGE 修 士 論 文}\\[3cm]
+  {\huge ○○に関する研究}\\[2cm]
+  {\Large 令和○年3月 提出}\\[3cm]
+  {\Large 地球環境科学専攻}\\
+  {\Large 地球科学コース}\\[2cm]
+  学籍番号 \hspace{2cm} 氏名
+\end{center}
+
+\newpage
+
+\begin{center}
+  \vspace*{4cm}
+  {\Huge \underline{タイトル(適宜改行)}\\
+    \underline{タイトル(適宜改行)}\\
+    \underline{タイトル(適宜改行)}}\\[4cm]
+  {\Large \underline{氏名}}
+\end{center}
+
+\newpage
+
+\begin{center}
+  {\Huge 要 旨}\\[1cm]
+  \Large{ここに要旨を書く}
+
+\end{center}
+
+\vspace{2cm}
+
+\newpage
+\tableofcontents    % 目次 
+\newpage
+%図目次および表目次はいらないといわれるかもですが、あったほうが親切な気がします(消せと言われたらこの下からここまでと書かれているところを消しましょう)。
+\listoffigures      % 図目次  
+\newpage
+\listoftables       % 表目次 
+\newpage
+%ここまで
+
+%本文はそれぞれ"01.tex","02.tex"...と.texファイルを分けて書いたほうがページの入れ替えがしやすく、書きやすいと思います。なお、.texファイルの最初の書き出しは\sectionから始めないと目次に反映されません。
+
+\include{00}
+
+\include{01}
+
+\include{02}
+
+\include{03}
+
+\include{04}
+
+\include{05}
+
+\include{06}
+
+\include{07}
+
+\include{08}
+
+\include{09}
+
+\include{10}
+
+%\appendix
+
+%\include{appa}
+
+\end{document}
